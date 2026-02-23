@@ -1,0 +1,381 @@
+{
+  "tournament": {
+    "name": "2026 NCAA Basketball Tournament",
+    "status": "in-progress",
+    "currentRound": 2,
+    "totalRounds": 6,
+    "lastUpdated": "2026-02-23T18:45:00Z"
+  },
+  "standings": [
+    {
+      "userId": "user001",
+      "userName": "Adrian H.",
+      "totalPoints": 2840,
+      "maxPossiblePoints": 3381,
+      "progressPercentage": 84,
+      "pointsByRound": {
+        "round1": 960,
+        "round2": 1880,
+        "round3": 0,
+        "round4": 0,
+        "round5": 0,
+        "round6": 0
+      }
+    },
+    {
+      "userId": "user002",
+      "userName": "Sarah M.",
+      "totalPoints": 2760,
+      "maxPossiblePoints": 3381,
+      "progressPercentage": 82,
+      "pointsByRound": {
+        "round1": 940,
+        "round2": 1820,
+        "round3": 0,
+        "round4": 0,
+        "round5": 0,
+        "round6": 0
+      }
+    },
+    {
+      "userId": "user003",
+      "userName": "Mike J.",
+      "totalPoints": 2680,
+      "maxPossiblePoints": 3381,
+      "progressPercentage": 79,
+      "pointsByRound": {
+        "round1": 920,
+        "round2": 1760,
+        "round3": 0,
+        "round4": 0,
+        "round5": 0,
+        "round6": 0
+      }
+    },
+    {
+      "userId": "user004",
+      "userName": "Jessica T.",
+      "totalPoints": 2550,
+      "maxPossiblePoints": 3381,
+      "progressPercentage": 75,
+      "pointsByRound": {
+        "round1": 900,
+        "round2": 1650,
+        "round3": 0,
+        "round4": 0,
+        "round5": 0,
+        "round6": 0
+      }
+    },
+    {
+      "userId": "user005",
+      "userName": "David L.",
+      "totalPoints": 2490,
+      "maxPossiblePoints": 3381,
+      "progressPercentage": 74,
+      "pointsByRound": {
+        "round1": 880,
+        "round2": 1610,
+        "round3": 0,
+        "round4": 0,
+        "round5": 0,
+        "round6": 0
+      }
+    },
+    {
+      "userId": "user006",
+      "userName": "Emily C.",
+      "totalPoints": 2410,
+      "maxPossiblePoints": 3381,
+      "progressPercentage": 71,
+      "pointsByRound": {
+        "round1": 860,
+        "round2": 1550,
+        "round3": 0,
+        "round4": 0,
+        "round5": 0,
+        "round6": 0
+      }
+    },
+    {
+      "userId": "user007",
+      "userName": "Alex P.",
+      "totalPoints": 2340,
+      "maxPossiblePoints": 3381,
+      "progressPercentage": 69,
+      "pointsByRound": {
+        "round1": 840,
+        "round2": 1500,
+        "round3": 0,
+        "round4": 0,
+        "round5": 0,
+        "round6": 0
+      }
+    },
+    {
+      "userId": "user008",
+      "userName": "Chris R.",
+      "totalPoints": 2280,
+      "maxPossiblePoints": 3381,
+      "progressPercentage": 67,
+      "pointsByRound": {
+        "round1": 820,
+        "round2": 1460,
+        "round3": 0,
+        "round4": 0,
+        "round5": 0,
+        "round6": 0
+      }
+    }
+  ],
+  "gameResults": [
+    {
+      "round": 1,
+      "matchId": "e1",
+      "region": "East",
+      "seed1": 1,
+      "seed2": 16,
+      "team1": "Duke",
+      "team2": "Purdue",
+      "winner": "Duke",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "e2",
+      "region": "East",
+      "seed1": 8,
+      "seed2": 9,
+      "team1": "Kansas",
+      "team2": "Nebraska",
+      "winner": "Kansas",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "e3",
+      "region": "East",
+      "seed1": 5,
+      "seed2": 12,
+      "team1": "Marquette",
+      "team2": "Mississippi St",
+      "winner": "Marquette",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "e4",
+      "region": "East",
+      "seed1": 4,
+      "seed2": 13,
+      "team1": "Wisconsin",
+      "team2": "Wagner",
+      "winner": "Wisconsin",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "e5",
+      "region": "East",
+      "seed1": 6,
+      "seed2": 11,
+      "team1": "Iowa State",
+      "team2": "Texas Tech",
+      "winner": "Iowa State",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "e6",
+      "region": "East",
+      "seed1": 3,
+      "seed2": 14,
+      "team1": "Auburn",
+      "team2": "Baylor",
+      "winner": "Auburn",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "e7",
+      "region": "East",
+      "seed1": 7,
+      "seed2": 10,
+      "team1": "Miami",
+      "team2": "Mississippi",
+      "winner": "Miami",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "e8",
+      "region": "East",
+      "seed1": 2,
+      "seed2": 15,
+      "team1": "Creighton",
+      "team2": "Johns Hopkins",
+      "winner": "Creighton",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "w1",
+      "region": "West",
+      "seed1": 1,
+      "seed2": 16,
+      "team1": "Utah State",
+      "team2": "Vermont",
+      "winner": "Utah State",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "w2",
+      "region": "West",
+      "seed1": 8,
+      "seed2": 9,
+      "team1": "Oregon",
+      "team2": "Drexel",
+      "winner": "Oregon",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "w3",
+      "region": "West",
+      "seed1": 5,
+      "seed2": 12,
+      "team1": "Texas",
+      "team2": "San Diego St",
+      "winner": "Texas",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "w4",
+      "region": "West",
+      "seed1": 4,
+      "seed2": 13,
+      "team1": "Gonzaga",
+      "team2": "Savannah St",
+      "winner": "Gonzaga",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "w5",
+      "region": "West",
+      "seed1": 6,
+      "seed2": 11,
+      "team1": "Arkansas",
+      "team2": "St Mary's",
+      "winner": "Arkansas",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "w6",
+      "region": "West",
+      "seed1": 3,
+      "seed2": 14,
+      "team1": "Houston",
+      "team2": "USC",
+      "winner": "Houston",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "w7",
+      "region": "West",
+      "seed1": 7,
+      "seed2": 10,
+      "team1": "Colorado St",
+      "team2": "Memphis",
+      "winner": "Colorado St",
+      "pointsValue": 10
+    },
+    {
+      "round": 1,
+      "matchId": "w8",
+      "region": "West",
+      "seed1": 2,
+      "seed2": 15,
+      "team1": "Baylor",
+      "team2": "Northern Carolina A&T",
+      "winner": "Baylor",
+      "pointsValue": 10
+    },
+    {
+      "round": 2,
+      "matchId": "e1s2",
+      "region": "East",
+      "team1": "Duke",
+      "team2": "Kansas",
+      "winner": "Duke",
+      "pointsValue": 20
+    },
+    {
+      "round": 2,
+      "matchId": "e2s2",
+      "region": "East",
+      "team1": "Marquette",
+      "team2": "Wisconsin",
+      "winner": "Wisconsin",
+      "pointsValue": 20
+    },
+    {
+      "round": 2,
+      "matchId": "e3s2",
+      "region": "East",
+      "team1": "Iowa State",
+      "team2": "Auburn",
+      "winner": "Auburn",
+      "pointsValue": 20
+    },
+    {
+      "round": 2,
+      "matchId": "e4s2",
+      "region": "East",
+      "team1": "Miami",
+      "team2": "Creighton",
+      "winner": "Creighton",
+      "pointsValue": 20
+    },
+    {
+      "round": 2,
+      "matchId": "w1s2",
+      "region": "West",
+      "team1": "Utah State",
+      "team2": "Oregon",
+      "winner": "Utah State",
+      "pointsValue": 20
+    },
+    {
+      "round": 2,
+      "matchId": "w2s2",
+      "region": "West",
+      "team1": "Texas",
+      "team2": "Gonzaga",
+      "winner": "Gonzaga",
+      "pointsValue": 20
+    },
+    {
+      "round": 2,
+      "matchId": "w3s2",
+      "region": "West",
+      "team1": "Arkansas",
+      "team2": "Houston",
+      "winner": "Houston",
+      "pointsValue": 20
+    },
+    {
+      "round": 2,
+      "matchId": "w4s2",
+      "region": "West",
+      "team1": "Colorado St",
+      "team2": "Baylor",
+      "winner": "Baylor",
+      "pointsValue": 20
+    }
+  ]
+}

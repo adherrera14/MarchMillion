@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Leaderboard - March Million 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>March Million</h1>
+            <p class="subtitle">Live Tournament Leaderboard</p>
+            <div class="header-controls">
+                <a href="index.html" class="btn btn-secondary">Back to My Bracket</a>
+            </div>
+        </header>
+
+        <div class="leaderboard-full-page">
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    <h2>Live Leaderboard</h2>
+                    <div class="tournament-info">
+                        <span id="tournamentStatus"></span>
+                        <span id="lastUpdated"></span>
+                    </div>
+                </div>
+
+                <div class="leaderboard-content">
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Player</th>
+                                <th>Total Points</th>
+                                <th>Progress</th>
+                                <th>R1</th>
+                                <th>R2</th>
+                                <th>R3</th>
+                                <th>R4</th>
+                                <th>R5</th>
+                                <th>R6</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="game-results-section">
+                    <h3>Recent Game Results</h3>
+                    <div id="gameResultsContainer" class="game-results"></div>
+                </div>
+
+                <div class="leaderboard-footer">
+                    <a href="index.html" class="btn btn-secondary">Back to My Bracket</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="leaderboard-script.js"></script>
+</body>
+</html>

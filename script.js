@@ -57,6 +57,7 @@ function showErrorMessage(message) {
 let rankings = {}; // Map of team ID to rank (1-64)
 let selectedTeam = null;
 let isModalOpen = false;
+let bracketSubmitted = false; // Track if bracket has been submitted
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', async function() {
@@ -75,6 +76,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Load rankings from localStorage if available
     loadRankings();
+    
+    // Check submission status
+    checkSubmissionStatus();
     
     // Initialize bracket display
     renderBracket();
@@ -208,6 +212,11 @@ function renderBracket() {
         bracket.appendChild(linesWrapper);
         regionElement.appendChild(bracket);
     });
+
+    // Apply disabled state if bracket is submitted
+    if (bracketSubmitted) {
+        disableBracketEditing();
+    }
 }
 
 function buildBracketLines(rowHeight, lineWidth) {
@@ -333,6 +342,11 @@ function createTeamCard(team) {
 
 // Open ranking modal
 function openRankingModal(team) {
+    if (bracketSubmitted) {
+        alert('Your bracket has been submitted and is locked. You cannot modify your picks.');
+        return;
+    }
+
     selectedTeam = team;
     isModalOpen = true;
 
@@ -626,42 +640,19 @@ function setupEventListeners() {
         }
     });
 
-    // Export bracket
+    // Submit bracket
     document.getElementById('exportBracket').addEventListener('click', exportBracket);
 }
 
-// Export bracket as JSON
+// Export bracket (shows confirmation dialog)
 function exportBracket() {
     if (Object.keys(rankings).length !== 64) {
         alert('Please rank all 64 teams before submitting your bracket.');
         return;
     }
 
-    const exportData = {
-        timestamp: new Date().toISOString(),
-        totalTeamsRanked: Object.keys(rankings).length,
-        rankings: Object.entries(rankings)
-            .sort((a, b) => b[1] - a[1])
-            .map(([teamId, rank]) => {
-                const team = ALL_TEAMS.find(t => t.id === parseInt(teamId));
-                return {
-                    rank,
-                    teamName: team.name,
-                    seed: team.seed
-                };
-            })
-    };
-
-    const dataStr = JSON.stringify(exportData, null, 2);
-    const dataBlob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `march-madness-bracket-${Date.now()}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    // Show confirmation dialog
+    showConfirmationDialog();
 }
 
 // Save rankings to localStorage
@@ -679,6 +670,84 @@ function loadRankings() {
             rankings[parseInt(key)] = parsed[key];
         });
     }
+}
+
+// Check if bracket has been submitted
+function checkSubmissionStatus() {
+    const submitted = localStorage.getItem('marchMadnessBracketSubmitted');
+    bracketSubmitted = submitted === 'true';
+    updateUIBasedOnSubmissionStatus();
+}
+
+// Update UI based on submission status
+function updateUIBasedOnSubmissionStatus() {
+    const clearAllBtn = document.getElementById('clearAll');
+    const submitBtn = document.getElementById('exportBracket');
+    const submitNote = document.getElementById('submitNote');
+    const submissionStatus = document.getElementById('submissionStatus');
+    const leaderboardLink = document.getElementById('leaderboardLink');
+
+    if (bracketSubmitted) {
+        // Bracket already submitted - show read-only mode
+        clearAllBtn.style.display = 'none';
+        submitBtn.style.display = 'none';
+        submitNote.style.display = 'none';
+        submissionStatus.style.display = 'block';
+        submissionStatus.textContent = '✓ Your bracket has been submitted and is locked.';
+        submissionStatus.style.color = '#4ade80';
+
+        // Show leaderboard link
+        if (leaderboardLink) {
+            leaderboardLink.style.display = 'block';
+        }
+
+        // Disable bracket editing
+        disableBracketEditing();
+    } else {
+        // Bracket not submitted yet - show editing mode
+        clearAllBtn.style.display = 'block';
+        submitBtn.style.display = 'block';
+        submitNote.style.display = 'block';
+        submissionStatus.style.display = 'none';
+
+        // Hide leaderboard link
+        if (leaderboardLink) {
+            leaderboardLink.style.display = 'none';
+        }
+
+        // Enable bracket editing
+        enableBracketEditing();
+    }
+}
+
+// Disable bracket editing when submitted
+function disableBracketEditing() {
+    const teamCards = document.querySelectorAll('.team-card');
+    teamCards.forEach(card => {
+        // Don't disable pointer events - we still want hover to show team info
+        card.style.opacity = '1'; // Keep full visibility
+        card.style.cursor = 'default'; // Show default cursor instead of pointer
+    });
+
+    // Region tabs remain enabled for viewing different regions
+    const regionTabs = document.querySelectorAll('.region-tab');
+    regionTabs.forEach(tab => {
+        tab.disabled = false;
+    });
+}
+
+// Enable bracket editing
+function enableBracketEditing() {
+    const teamCards = document.querySelectorAll('.team-card');
+    teamCards.forEach(card => {
+        card.style.pointerEvents = 'auto';
+        card.style.opacity = '1';
+    });
+
+    const regionTabs = document.querySelectorAll('.region-tab');
+    regionTabs.forEach(tab => {
+        tab.disabled = false;
+    });
 }
 
 // Handle Enter key in ranking input
@@ -729,4 +798,55 @@ function renderActiveBracketLines() {
     const svg = buildBracketLines(rowHeight, actualWidth);
     linesWrapper.innerHTML = '';
     linesWrapper.appendChild(svg);
+}
+
+// ===== VIEW SWITCHING FUNCTIONALITY =====
+
+
+// Show confirmation dialog before final submission
+function showConfirmationDialog() {
+    const confirmed = confirm('Are you sure you want to submit your bracket? You will not be able to make changes after submission.');
+    
+    if (confirmed) {
+        finalizeSubmission();
+    }
+}
+
+// Finalize bracket submission
+function finalizeSubmission() {
+    const exportData = {
+        timestamp: new Date().toISOString(),
+        totalTeamsRanked: Object.keys(rankings).length,
+        rankings: Object.entries(rankings)
+            .sort((a, b) => b[1] - a[1])
+            .map(([teamId, rank]) => {
+                const team = ALL_TEAMS.find(t => t.id === parseInt(teamId));
+                return {
+                    rank,
+                    teamName: team.name,
+                    seed: team.seed
+                };
+            })
+    };
+
+    const dataStr = JSON.stringify(exportData, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `march-madness-bracket-${Date.now()}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    // Mark bracket as submitted
+    bracketSubmitted = true;
+    localStorage.setItem('marchMadnessBracketSubmitted', 'true');
+
+    // Show success message
+    alert('Bracket submitted successfully! Your ranking has been locked in.');
+    
+    // Update UI
+    updateUIBasedOnSubmissionStatus();
 }

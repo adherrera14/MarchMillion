@@ -67,6 +67,17 @@ header h1 {
     display: none;
 }
 
+.submission-status {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: #4ade80;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    background-color: rgba(74, 222, 128, 0.1);
+    border-radius: 6px;
+    border-left: 3px solid #4ade80;
+}
+
 /* Main Content */
 .main-content {
     display: grid;
@@ -1027,6 +1038,541 @@ header h1 {
 ::-webkit-scrollbar-thumb {
     background: #d4b962;
     border-radius: 4px;
+}
+
+/* ===== NEW VIEWS STYLING ===== */
+
+/* View Navigation Tabs */
+.view-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid #d4b962;
+    background-color: #000000;
+}
+
+.view-tab {
+    padding: 0.8rem 2rem;
+    background-color: #12141d;
+    color: #ffffff;
+    border: 2px solid #444;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-tab:hover {
+    border-color: #d4b962;
+    background-color: #1a1d2e;
+}
+
+.view-tab.active {
+    background-color: #d4b962;
+    color: #000000;
+    border-color: #d4b962;
+}
+
+/* View Content Sections */
+.view-content {
+    padding: 2rem;
+}
+
+/* Review Confirmation View */
+.review-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.review-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.review-header h2 {
+    color: #d4b962;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.review-header p {
+    color: #aaa;
+    font-size: 1.05rem;
+}
+
+.review-bracket {
+    background-color: #12141d;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.review-bracket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.review-region {
+    background-color: #1a1d2e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.review-region h3 {
+    color: #d4b962;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #d4b962;
+    padding-bottom: 0.5rem;
+}
+
+.review-region ul {
+    list-style: none;
+    padding: 0;
+}
+
+.review-region li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #2a2d3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-region li:last-child {
+    border-bottom: none;
+}
+
+.review-team-name {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.review-team-rank {
+    background-color: #d4b962;
+    color: #000000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.review-summary {
+    background-color: #1a1d2e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.review-summary-item {
+    text-align: center;
+}
+
+.review-summary-label {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.review-summary-value {
+    color: #d4b962;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.review-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review-actions .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+/* Leaderboard View */
+.leaderboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.leaderboard-header h2 {
+    color: #d4b962;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.tournament-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+.leaderboard-content {
+    background-color: #12141d;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.leaderboard-table thead {
+    border-bottom: 3px solid #d4b962;
+}
+
+.leaderboard-table th {
+    padding: 1rem;
+    text-align: left;
+    color: #d4b962;
+    font-weight: 700;
+    background-color: #1a1d2e;
+    white-space: nowrap;
+}
+
+.leaderboard-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #2a2d3a;
+    color: #ffffff;
+}
+
+.leaderboard-table tr:hover {
+    background-color: rgba(212, 185, 98, 0.05);
+}
+
+.leaderboard-table tbody tr:first-child {
+    background-color: rgba(212, 185, 98, 0.1);
+    border-left: 3px solid #d4b962;
+}
+
+.leaderboard-table tbody tr:first-child td {
+    color: #d4b962;
+    font-weight: 600;
+}
+
+.leaderboard-rank {
+    font-weight: 700;
+    color: #d4b962;
+    font-size: 1.1rem;
+    min-width: 30px;
+    text-align: center;
+}
+
+.leaderboard-player-name {
+    font-weight: 600;
+}
+
+.leaderboard-points {
+    font-weight: 700;
+    color: #d4b962;
+    font-size: 1.05rem;
+    text-align: right;
+}
+
+.leaderboard-progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #2a2d3a;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 0.3rem;
+}
+
+.leaderboard-progress-fill {
+    height: 100%;
+    background-color: #d4b962;
+    transition: width 0.3s ease;
+}
+
+.round-points {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #d4b962;
+}
+
+.round-points.completed {
+    color: #4ade80;
+}
+
+.round-points.pending {
+    color: #999;
+}
+
+.game-results-section {
+    margin-top: 3rem;
+}
+
+.game-results-section h3 {
+    color: #d4b962;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #d4b962;
+    padding-bottom: 0.5rem;
+}
+
+.game-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.game-result-card {
+    background-color: #1a1d2e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border-left: 4px solid #d4b962;
+}
+
+.game-round {
+    color: #999;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.8rem;
+}
+
+.game-matchup {
+    margin-bottom: 1rem;
+}
+
+.game-team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #2a2d3a;
+}
+
+.game-team:last-child {
+    border-bottom: none;
+}
+
+.game-team-name {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.game-team.winner {
+    background-color: rgba(74, 222, 128, 0.1);
+}
+
+.game-team.winner .game-team-name {
+    color: #4ade80;
+    font-weight: 700;
+}
+
+.game-points {
+    background-color: #d4b962;
+    color: #000000;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    min-width: 35px;
+    text-align: center;
+}
+
+/* Responsive Review/Leaderboard */
+@media (max-width: 1024px) {
+    .review-bracket-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .leaderboard-table {
+        font-size: 0.85rem;
+    }
+
+    .leaderboard-table th,
+    .leaderboard-table td {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .view-navigation {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .view-tab {
+        flex: 1;
+        min-width: 120px;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .review-container,
+    .leaderboard-container {
+        padding: 0;
+    }
+
+    .view-content {
+        padding: 1rem;
+    }
+
+    .review-bracket {
+        padding: 1rem;
+    }
+
+    .review-bracket-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-region {
+        padding: 1rem;
+    }
+
+    .review-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .review-actions {
+        flex-direction: column;
+    }
+
+    .review-actions .btn {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .leaderboard-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .tournament-info {
+        gap: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .leaderboard-content {
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .leaderboard-table {
+        font-size: 0.8rem;
+    }
+
+    .leaderboard-table th,
+    .leaderboard-table td {
+        padding: 0.6rem;
+    }
+
+    .game-results {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .view-navigation {
+        flex-direction: column;
+        padding: 0.8rem;
+    }
+
+    .view-tab {
+        width: 100%;
+    }
+
+    .review-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .review-header p {
+        font-size: 0.9rem;
+    }
+
+    .review-region li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .review-team-rank {
+        margin-top: 0.5rem;
+        align-self: flex-end;
+    }
+
+    .review-summary {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .leaderboard-table {
+        font-size: 0.75rem;
+    }
+
+    .leaderboard-table th,
+    .leaderboard-table td {
+        padding: 0.5rem;
+    }
+
+    .round-points {
+        font-size: 0.75rem;
+    }
+}
+
+/* Full-page leaderboard styling */
+.leaderboard-full-page {
+    padding: 2rem;
+}
+
+.leaderboard-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #d4b962;
+}
+
+.leaderboard-footer .btn {
+    min-width: 200px;
+}
+
+@media (max-width: 768px) {
+    .leaderboard-full-page {
+        padding: 1rem;
+    }
+
+    .leaderboard-footer {
+        margin-top: 1rem;
+        padding-top: 1rem;
+    }
+
+    .leaderboard-footer .btn {
+        width: 100%;
+        min-width: auto;
+    }
 }
 
 ::-webkit-scrollbar-thumb:hover {

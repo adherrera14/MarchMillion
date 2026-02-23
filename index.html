@@ -14,14 +14,17 @@
         <header>
             <h1>March Million</h1>
             <p class="subtitle">Assign points to each team in our tournament bracket. Win $1,000,000 if you achieve the maximum score of 3,381 points!</p>
-            <div class="header-controls">
-                <button id="clearAll" class="btn btn-secondary">Clear All Rankings</button>
-                <button id="exportBracket" class="btn btn-primary" disabled>Submit Bracket</button>
+            <div class="header-controls" id="headerControls">
+                <button id="clearAll" class="btn btn-secondary" style="display: none;">Clear All Rankings</button>
+                <button id="exportBracket" class="btn btn-primary" disabled style="display: none;">Submit Bracket</button>
+                <a href="leaderboard.html" class="btn btn-secondary" id="leaderboardLink" style="display: none;">Live Leaderboard</a>
             </div>
             <p id="submitNote" class="submit-note">Rank all 64 teams to enable Submit.</p>
+            <p id="submissionStatus" class="submission-status" style="display: none;"></p>
         </header>
 
-        <div class="main-content">
+
+        <div class="main-content" id="bracketView">
             <!-- Left Sidebar: Rankings Panel -->
             <aside class="sidebar rankings-panel">
                 <h2>Your Rankings</h2>
@@ -104,9 +107,9 @@
                         <div class="rank-grid" id="rankGrid"></div>
                     </div>
                     <div class="modal-buttons">
-                        <button id="confirmRank" class="btn btn-primary">Confirm Rank</button>
-                        <button id="removeRank" class="btn btn-secondary">Remove Rank</button>
                         <button id="cancelRank" class="btn btn-tertiary">Cancel</button>
+                        <button id="removeRank" class="btn btn-secondary">Remove Rank</button>
+                        <button id="confirmRank" class="btn btn-primary">Confirm Rank</button>
                     </div>
                     <div id="rankingError" class="error-message"></div>
                 </div>
